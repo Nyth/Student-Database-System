@@ -1,0 +1,13 @@
+SET SERVEROUTPUT ON
+SET VERIFY OFF
+
+ACCEPT num PROMPT 'Enter the number of child: '
+
+DECLARE
+v_fee NUMBER(9,2);
+
+BEGIN
+v_fee := reg_fee(&num);
+DBMS_OUTPUT.PUT_LINE ('The amount of registration fee per student is: RM ' || v_fee);
+END;
+/

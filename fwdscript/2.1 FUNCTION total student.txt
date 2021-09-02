@@ -1,0 +1,14 @@
+CREATE OR REPLACE FUNCTION total_student
+(total_num NUMBER)
+RETURN VARCHAR2
+IS
+status VARCHAR2(40);
+
+BEGIN
+CASE WHEN total_num > 3 THEN status := 'FULL: TEACHER CHILD RATIO IS MAXIMUM.';
+ELSE status := 'NOT FULL.';
+END CASE;
+
+RETURN(status);
+END total_student;
+/

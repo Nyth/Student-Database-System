@@ -1,0 +1,11 @@
+ACCEPT g_id PROMPT 'Enter the guardian’s ID: '
+ACCEPT g_name PROMPT 'Enter the guardian’s name: '
+ACCEPT g_adddress PROMPT 'Enter the guardian’s address: '
+ACCEPT g_occupation PROMPT 'Enter the guardian’s occupation: '
+ACCEPT g_phone PROMPT 'Enter the guardian’s phone number: '
+
+BEGIN
+Addnewguardian('&g_id', '&g_name', '&g_adddress', '&g_occupation', '&g_phone');
+DBMS_OUTPUT.put_line('The guardian is successfully registered.');
+END;
+/

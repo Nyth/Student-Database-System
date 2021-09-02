@@ -1,0 +1,12 @@
+CREATE OR REPLACE PROCEDURE Addnewguardian
+(g_id guardian.gid%TYPE,
+g_name guardian.gname%TYPE,
+g_adddress guardian.gaddress%TYPE,
+g_occupation guardian. gOccupation %TYPE,
+g_phone guardian. gphone %TYPE)
+AS
+BEGIN
+INSERT INTO guardian (gid, gname, gaddress, gOccupation, gphone)
+VALUES (g_id, g_name, g_adddress, g_occupation, g_phone);
+END Addnewguardian;
+/

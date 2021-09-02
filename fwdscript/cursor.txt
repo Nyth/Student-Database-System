@@ -1,0 +1,11 @@
+BEGIN
+Update teacher
+Set tname='Nayeem Uddin'
+where tname='Dua Lipa';
+
+IF SQL%NOTFOUND THEN
+	DBMS_OUTPUT.PUT_LINE('No maching record');
+ELSIF SQL%FOUND then DBMS_OUTPUT.PUT_LINE('DATA Successfully Updated');
+END IF;
+END;
+/

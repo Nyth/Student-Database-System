@@ -1,0 +1,13 @@
+CREATE OR REPLACE PROCEDURE Addnewstudent
+(s_id student.sid%TYPE,
+s_name student. sname%TYPE,
+s_dob student. sdob%TYPE,
+s_gender student. sgender%TYPE,
+g_id student. gid %TYPE,
+)
+AS
+BEGIN
+INSERT INTO guardian (sid, sname, sdob, sgender, gid)
+VALUES (s_id, s_name, s_dob, s_gender, g_id);
+END Addnewstudent;
+/

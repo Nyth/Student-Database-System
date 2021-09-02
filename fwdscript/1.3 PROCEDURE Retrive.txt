@@ -1,0 +1,38 @@
+CREATE OR REPLACE PROCEDURE record_details
+
+(stud_id			term_rec.SID%TYPE,
+term_id			OUT	term_rec.TERMID%TYPE,
+st_date			OUT	term_rec.Start_Date%TYPE,
+fin_date		OUT	term_rec.Finish_Date%TYPE,
+class_id		OUT	term_rec.CID%TYPE,
+teacher_id		OUT	term_rec.TID%TYPE,
+guardian_id		OUT	guardian.GID%TYPE,
+guardian_name		OUT	guardian.GName%TYPE,
+guardian_address	OUT	guardian.GAddress%TYPE,
+guardian_occupation	OUT	guardian.GOccupation%TYPE,
+guardian_phone		OUT	guardian.GPhone%TYPE)
+
+AS
+
+BEGIN
+
+SELECT TERMID, Start_Date, Finish_Date, CID, TID
+INTO term_id, st_date, fin_date, class_id, teacher_id
+FROM term_rec 
+JOIN student 
+USING (sid)
+WHERE sid = stud_id;
+
+SELECT GID, GName, GAddress, GOccupation, GPhone
+INTO guardian_id, guardian_name, guardian_address, guardian_occupation, guardian_phone
+FROM guardian 
+JOIN student 
+USING (gid)
+WHERE sid = stud_id;
+
+END;
+/
+
+
+
+

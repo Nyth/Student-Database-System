@@ -1,0 +1,22 @@
+SET SERVEROUTPUT ON
+SET VERIFY OFF
+
+ACCEPT teach_id PROMPT 'Enter the teacher ID: '
+
+DECLARE
+v_total		term_rec.SID%TYPE;
+v_status	VARCHAR2(40);
+
+BEGIN
+SELECT COUNT(SID)
+INTO v_total
+FROM term_rec
+WHERE TID = &teach_id;
+
+v_status := total_student(v_total);
+DBMS_OUTPUT.PUT_LINE(v_status);
+DBMS_OUTPUT.PUT_LINE('The teacher with the ID ' ||&teach_id|| '  is managing ' ||v_total|| ' student(s).');
+
+END;
+/
+

@@ -1,0 +1,12 @@
+CREATE OR REPLACE FUNCTION reg_fee
+(v_stnum NUMBER)
+RETURN NUMBER
+AS
+v_fee NUMBER(9,2);
+BEGIN
+IF v_stnum = 1 THEN v_fee := 450;
+ELSE v_fee := 400;
+END IF;
+RETURN (v_fee);
+END;
+/

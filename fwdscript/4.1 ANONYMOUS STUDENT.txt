@@ -1,0 +1,11 @@
+ACCEPT s_id PROMPT 'Enter the student’s ID: '
+ACCEPT s_name PROMPT 'Enter the student’s name: '
+ACCEPT s_dob PROMPT 'Enter the student’s date of birth: '
+ACCEPT s_gender PROMPT 'Enter the student’s gender: '
+ACCEPT g_id PROMPT 'Enter the student’s guardian ID: '
+
+BEGIN
+Addnewstudent('&s_id', '&s_name', '&s_dob', '&s_gender', '&g_id');
+DBMS_OUTPUT.put_line('The student is successfully registered.');
+END;
+/

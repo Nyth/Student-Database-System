@@ -1,0 +1,46 @@
+SET SERVEROUTPUT ON
+SET VERIFY OFF
+
+ACCEPT stud_id PROMPT 'Enter the student ID: '
+
+DECLARE
+
+t_term_id		term_rec.TERMID%TYPE;
+t_start_date		term_rec.Start_Date%TYPE;
+t_finish_date		term_rec.Finish_Date%TYPE;
+t_class_id		term_rec.CID%TYPE;
+t_teacher_id		term_rec.TID%TYPE;
+g_guardian_id		guardian.GID%TYPE;
+g_guardian_name		guardian.GName%TYPE;
+g_guardian_address	guardian.GAddress%TYPE;
+g_guardian_occupation	guardian.GOccupation%TYPE;
+g_guardian_phone	guardian.GPhone%TYPE;
+
+BEGIN
+
+record_details
+('&stud_id', 
+t_term_id, 
+t_start_date,
+t_finish_date, 
+t_class_id, 
+t_teacher_id, 
+g_guardian_id, 
+g_guardian_name,
+g_guardian_address,
+g_guardian_occupation,
+g_guardian_phone);
+
+DBMS_OUTPUT.PUT_LINE('TERM RECORD ID: ' 		|| t_term_id);
+DBMS_OUTPUT.PUT_LINE('STARTING DATE: ' 			|| t_start_date);
+DBMS_OUTPUT.PUT_LINE('FINISHING DATE: ' 		|| t_finish_date);
+DBMS_OUTPUT.PUT_LINE('CLASS ID: ' 			|| t_class_id);
+DBMS_OUTPUT.PUT_LINE('TEACHER ID: ' 			|| t_teacher_id);
+DBMS_OUTPUT.PUT_LINE('GUARDIAN ID: ' 			|| g_guardian_id);
+DBMS_OUTPUT.PUT_LINE('GUARDIAN NAME: ' 			|| g_guardian_name);
+DBMS_OUTPUT.PUT_LINE('GUARDIAN ADDRESS: ' 		|| g_guardian_address);
+DBMS_OUTPUT.PUT_LINE('GUARDIAN OCCUPATION: ' 		|| g_guardian_occupation);
+DBMS_OUTPUT.PUT_LINE('GUARDIAN PHONE NUMBER: ' 		|| g_guardian_phone);
+
+END;
+/
